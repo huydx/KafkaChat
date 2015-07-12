@@ -1,0 +1,14 @@
+run
+runn
+run
+run --name huydx --room foo --server 10
+run --name huydx --room foo --server 1
+run --name huydx --room foo --server 127.0.0.1:2181
+run --name 三浦 --room foo --server 127.0.0.1:2181
+run --name 三よっし--room foo --server 127.0.0.1:2181
+run --name 三よっし--ro om foo --server 127.0.0.1:2181
+run --name 三よっし--ro  om om --server 127.0.0.1:2181
+run --name yosshi --room foo --server 127.0.0.1:2181
+run --name huydx --room foo --server 127.0.0.1:2181
+run
+run --name huydx --room foo --server 127.0.0.1:2181
