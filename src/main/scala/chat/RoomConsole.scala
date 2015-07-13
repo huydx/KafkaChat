@@ -13,17 +13,18 @@ object RoomConsole extends ChatArgument {
 
     val consumer = new HConsumer(room , uname, host)
     val hZooKeeper  = new HZooKeeper(host)
-    val partition  = hZooKeeper.getPartions(room).values.head
-
-    hZooKeeper.setToDesireOffset(
-      uname,
-      room,
-      partition.head,
-      1L
-    )
-
+    try {
+      val partition = hZooKeeper.getPartions(room).values.head
+      hZooKeeper.setToDesireOffset(
+        uname,
+        room,
+        partition.head,
+        10L
+      )
+    } catch {
+      case e: Exception => //オフセットが１０以下の場合オフセットを戻せない場合がある
+    }
     consumer.consume(printOut)
-
   }
 
   def printOut(message: String) = {
